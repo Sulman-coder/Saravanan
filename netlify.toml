@@ -1,0 +1,8 @@
+[build]
+  publish = "."
+
+# Optional placeholder for a future Netlify Function.
+# [[redirects]]
+#   from = "/api/discord-user/*"
+#   to = "/.netlify/functions/discord-user?id=:splat"
+#   status = 200
