@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#090b10" />
+  <meta name="description" content="Saravanan Palani — personal profile." />
+  <title>Saravanan Palani | Profile</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="profile-page">
+
+    <!-- Replace assets/profile-video.mp4 with the client's final downloaded Google Drive video. -->
+    <video class="background-video" autoplay muted loop playsinline preload="metadata" poster="assets/video-poster.jpg">
+      <source src="assets/profile-video.mp4" type="video/mp4">
+    </video>
+
+    <div class="video-overlay"></div>
+    <div class="grain"></div>
+
+    <section class="profile-shell" aria-label="Personal profile">
+      <div class="profile-card">
+
+        <div class="avatar-wrap">
+          <div class="avatar-ring">
+            <img id="discordAvatar"
+                 src="https://cdn.discordapp.com/embed/avatars/0.png"
+                 alt="Discord profile avatar"
+                 loading="eager">
+          </div>
+          <span class="online-dot" title="Discord profile"></span>
+        </div>
+
+        <div class="identity">
+          <p class="eyebrow"><span class="pulse"></span> PERSONAL PROFILE</p>
+          <h1 id="profileName">Saravanan Palani</h1>
+          <p class="handle">Discord ID <span>502469831346487305</span></p>
+        </div>
+
+        <div class="divider"></div>
+
+        <p class="intro">
+          Welcome to my personal profile. Connect with me through the platforms below.
+        </p>
+
+        <div class="social-grid">
+          <a class="social-btn steam" href="https://steamcommunity.com/profiles/76561198224063524" target="_blank" rel="noopener noreferrer" aria-label="Steam profile">
+            <span class="icon"><i class="fa-brands fa-steam"></i></span>
+            <span><strong>Steam</strong><small>Gaming profile</small></span>
+            <i class="fa-solid fa-arrow-up-right-from-square external"></i>
+          </a>
+
+          <a class="social-btn instagram" href="https://www.instagram.com/saravanan_palani._/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile">
+            <span class="icon"><i class="fa-brands fa-instagram"></i></span>
+            <span><strong>Instagram</strong><small>@saravanan_palani._</small></span>
+            <i class="fa-solid fa-arrow-up-right-from-square external"></i>
+          </a>
+
+          <a class="social-btn facebook" href="https://www.facebook.com/saravanan.palani.188550" target="_blank" rel="noopener noreferrer" aria-label="Facebook profile">
+            <span class="icon"><i class="fa-brands fa-facebook-f"></i></span>
+            <span><strong>Facebook</strong><small>Social profile</small></span>
+            <i class="fa-solid fa-arrow-up-right-from-square external"></i>
+          </a>
+
+          <a class="social-btn discord" href="https://discord.com/users/502469831346487305" target="_blank" rel="noopener noreferrer" aria-label="Discord profile">
+            <span class="icon"><i class="fa-brands fa-discord"></i></span>
+            <span><strong>Discord</strong><small>Open Discord profile</small></span>
+            <i class="fa-solid fa-arrow-up-right-from-square external"></i>
+          </a>
+        </div>
+
+        <div class="footer-line">
+          <span>© <span id="year"></span> Saravanan Palani</span>
+          <span class="status"><i class="fa-solid fa-circle"></i> online profile</span>
+        </div>
+      </div>
+    </section>
+
+    <button class="sound-toggle" id="soundToggle" type="button" aria-label="Toggle video sound">
+      <i class="fa-solid fa-volume-xmark"></i>
+    </button>
+
+    <div class="scroll-hint" aria-hidden="true">
+      <span>SCROLL</span>
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

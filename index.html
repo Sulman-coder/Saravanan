@@ -1,97 +1,313 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#090b10" />
-  <meta name="description" content="Saravanan Palani — personal profile." />
+  <meta
+    name="description"
+    content="Saravanan Palani — personal Discord profile."
+  />
+
   <title>Saravanan Palani | Profile</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link rel="stylesheet" href="styles.css" />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
+
+  <link rel="stylesheet" href="sec.css">
 </head>
+
 <body>
+
   <main class="profile-page">
 
-    <!-- Replace assets/profile-video.mp4 with the client's final downloaded Google Drive video. -->
-    <video class="background-video" autoplay muted loop playsinline preload="metadata" poster="assets/video-poster.jpg">
+    <!-- Background Video -->
+    <video
+      class="background-video"
+      id="backgroundVideo"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster="assets/video-poster.jpg"
+    >
       <source src="assets/profile-video.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
     </video>
 
+    <!-- Background Layers -->
     <div class="video-overlay"></div>
+    <div class="animated-glow glow-one"></div>
+    <div class="animated-glow glow-two"></div>
     <div class="grain"></div>
 
-    <section class="profile-shell" aria-label="Personal profile">
-      <div class="profile-card">
+    <!-- Floating Particles -->
+    <div class="particles" aria-hidden="true">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
 
-        <div class="avatar-wrap">
-          <div class="avatar-ring">
-            <img id="discordAvatar"
-                 src="https://cdn.discordapp.com/embed/avatars/0.png"
-                 alt="Discord profile avatar"
-                 loading="eager">
+    <section class="profile-shell" aria-label="Personal Discord profile">
+
+      <div class="profile-card" id="profileCard">
+
+        <!-- Top Discord Profile -->
+        <div class="profile-top">
+
+          <div class="avatar-wrap" id="avatarWrap">
+
+            <div class="avatar-glow"></div>
+
+            <div class="avatar-ring">
+              <img
+                id="discordAvatar"
+                src="https://cdn.discordapp.com/embed/avatars/0.png"
+                alt="Saravanan Palani Discord profile avatar"
+                loading="eager"
+              >
+            </div>
+
+            <span
+              class="online-dot"
+              title="Online"
+              aria-label="Online"
+            ></span>
+
           </div>
-          <span class="online-dot" title="Discord profile"></span>
+
+          <div class="identity">
+
+            <p class="eyebrow">
+              <span class="pulse"></span>
+              DISCORD PROFILE
+            </p>
+
+            <h1 id="profileName">
+              Saravanan Palani
+            </h1>
+
+            <p class="discord-username" id="discordUsername">
+              saravananpal931
+            </p>
+
+            <p class="handle">
+              Discord ID
+              <span>502469831346487305</span>
+            </p>
+
+          </div>
+
         </div>
 
-        <div class="identity">
-          <p class="eyebrow"><span class="pulse"></span> PERSONAL PROFILE</p>
-          <h1 id="profileName">Saravanan Palani</h1>
-          <p class="handle">Discord ID <span>502469831346487305</span></p>
+        <!-- Discord Badges -->
+        <div class="badges" aria-label="Discord profile badges">
+
+          <span class="badge" title="Discord Nitro">
+            <i class="fa-solid fa-gem"></i>
+          </span>
+
+          <span class="badge" title="Discord profile">
+            <i class="fa-brands fa-discord"></i>
+          </span>
+
+          <span class="badge" title="Verified profile">
+            <i class="fa-solid fa-check"></i>
+          </span>
+
+          <span class="badge" title="Active">
+            <i class="fa-solid fa-bolt"></i>
+          </span>
+
         </div>
 
         <div class="divider"></div>
 
-        <p class="intro">
-          Welcome to my personal profile. Connect with me through the platforms below.
-        </p>
+        <!-- About -->
+        <div class="about-section">
 
+          <p class="about-label">
+            ABOUT ME
+          </p>
+
+          <p class="intro">
+            Welcome to my personal profile. Connect with me through the
+            platforms below.
+          </p>
+
+        </div>
+
+        <!-- Social Links -->
         <div class="social-grid">
-          <a class="social-btn steam" href="https://steamcommunity.com/profiles/76561198224063524" target="_blank" rel="noopener noreferrer" aria-label="Steam profile">
-            <span class="icon"><i class="fa-brands fa-steam"></i></span>
-            <span><strong>Steam</strong><small>Gaming profile</small></span>
+
+          <a
+            class="social-btn steam"
+            href="https://steamcommunity.com/profiles/76561198224063524/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Steam profile"
+          >
+            <span class="icon">
+              <i class="fa-brands fa-steam"></i>
+            </span>
+
+            <span>
+              <strong>Steam</strong>
+              <small>Gaming profile</small>
+            </span>
+
             <i class="fa-solid fa-arrow-up-right-from-square external"></i>
           </a>
 
-          <a class="social-btn instagram" href="https://www.instagram.com/saravanan_palani._/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile">
-            <span class="icon"><i class="fa-brands fa-instagram"></i></span>
-            <span><strong>Instagram</strong><small>@saravanan_palani._</small></span>
+
+          <a
+            class="social-btn instagram"
+            href="https://www.instagram.com/saravanan_palani._/?hl=en"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram profile"
+          >
+            <span class="icon">
+              <i class="fa-brands fa-instagram"></i>
+            </span>
+
+            <span>
+              <strong>Instagram</strong>
+              <small>@saravanan_palani._</small>
+            </span>
+
             <i class="fa-solid fa-arrow-up-right-from-square external"></i>
           </a>
 
-          <a class="social-btn facebook" href="https://www.facebook.com/saravanan.palani.188550" target="_blank" rel="noopener noreferrer" aria-label="Facebook profile">
-            <span class="icon"><i class="fa-brands fa-facebook-f"></i></span>
-            <span><strong>Facebook</strong><small>Social profile</small></span>
+
+          <a
+            class="social-btn facebook"
+            href="https://www.facebook.com/saravanan.palani.188550"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook profile"
+          >
+            <span class="icon">
+              <i class="fa-brands fa-facebook-f"></i>
+            </span>
+
+            <span>
+              <strong>Facebook</strong>
+              <small>Social profile</small>
+            </span>
+
             <i class="fa-solid fa-arrow-up-right-from-square external"></i>
           </a>
 
-          <a class="social-btn discord" href="https://discord.com/users/502469831346487305" target="_blank" rel="noopener noreferrer" aria-label="Discord profile">
-            <span class="icon"><i class="fa-brands fa-discord"></i></span>
-            <span><strong>Discord</strong><small>Open Discord profile</small></span>
+
+          <a
+            class="social-btn discord"
+            href="https://discord.com/users/502469831346487305"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Discord profile"
+          >
+            <span class="icon">
+              <i class="fa-brands fa-discord"></i>
+            </span>
+
+            <span>
+              <strong>Discord</strong>
+              <small>saravananpal931</small>
+            </span>
+
             <i class="fa-solid fa-arrow-up-right-from-square external"></i>
           </a>
+
         </div>
 
+
+        <!-- Profile Footer -->
         <div class="footer-line">
-          <span>© <span id="year"></span> Saravanan Palani</span>
-          <span class="status"><i class="fa-solid fa-circle"></i> online profile</span>
+
+          <span>
+            © <span id="year"></span> Saravanan Palani
+          </span>
+
+          <span class="status">
+            <i class="fa-solid fa-circle"></i>
+            online
+          </span>
+
         </div>
+
       </div>
+
     </section>
 
-    <button class="sound-toggle" id="soundToggle" type="button" aria-label="Toggle video sound">
-      <i class="fa-solid fa-volume-xmark"></i>
-    </button>
+
+    <!-- Media Controls -->
+    <div class="media-controls">
+
+      <!-- Reshuffle -->
+      <button
+        class="control-btn"
+        id="shuffleToggle"
+        type="button"
+        aria-label="Reshuffle profile effects"
+        title="Reshuffle effects"
+      >
+        <i class="fa-solid fa-shuffle"></i>
+      </button>
+
+      <!-- Play / Pause -->
+      <button
+        class="control-btn"
+        id="playToggle"
+        type="button"
+        aria-label="Pause video"
+        title="Pause / Play"
+      >
+        <i class="fa-solid fa-pause"></i>
+      </button>
+
+      <!-- Volume -->
+      <button
+        class="control-btn"
+        id="soundToggle"
+        type="button"
+        aria-label="Turn video sound on"
+        title="Volume"
+      >
+        <i class="fa-solid fa-volume-xmark"></i>
+      </button>
+
+    </div>
+
 
     <div class="scroll-hint" aria-hidden="true">
-      <span>SCROLL</span>
-      <i class="fa-solid fa-chevron-down"></i>
+      <span>MOVE YOUR MOUSE</span>
+      <i class="fa-solid fa-computer-mouse"></i>
     </div>
+
   </main>
 
-  <script src="script.js"></script>
+
+  <script src="sec.js"></script>
+
 </body>
 </html>
