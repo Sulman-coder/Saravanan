@@ -560,3 +560,31 @@
 .media-controls .control-btn:nth-child(3):hover {
   box-shadow: 0 0 18px rgba(34, 197, 94, 0.45);
 }
+
+
+
+/* ==========================================
+   DESKTOP SCROLL FIX
+   ========================================== */
+
+@media (min-width: 769px) {
+
+  .profile-page {
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    align-items: flex-start;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .profile-shell {
+    max-height: none;
+  }
+
+  .profile-card {
+    max-height: none;
+  }
+
+}
