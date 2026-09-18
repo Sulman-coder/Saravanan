@@ -32,24 +32,43 @@ if (year) {
   year.textContent = new Date().getFullYear();
 }
 
-
 // ==========================================
-// VIDEO AUTOPLAY
+// VIDEO AUTOPLAY + AUDIO
 // ==========================================
-
-if (video) {
-
-  video.muted = true;
+ if (video) {
 
   video.autoplay = true;
-
   video.loop = true;
-
   video.playsInline = true;
+  video.volume = 1;
+  video.muted = false;
 
-  video.play().catch(() => {});
+  video.play().catch(() => {
 
-}
+
+    
+     const startVideoWithSound = () => {
+       video.muted = false;
+      video.volume = 1;
+
+      video.play().catch(() => {});
+
+    };
+     document.addEventListener(
+      "click",
+     startVideoWithSound,
+     { once: true }
+    );
+
+   document.addEventListener(
+      "touchstart",
+      startVideoWithSound,
+      { once: true }
+    );
+
+   });
+
+ }
 
 
 // ==========================================
@@ -169,7 +188,6 @@ if (video) {
 
 }
 
-
 // ==========================================
 // MOUSE FOLLOW 3D EFFECT
 // ==========================================
@@ -183,46 +201,42 @@ let currentY = 0;
 const isTouchDevice =
   window.matchMedia("(pointer: coarse)").matches;
 
+const prefersReducedMotion =
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 if (
   profilePage &&
   profileCard &&
   !isTouchDevice &&
-  !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  !prefersReducedMotion
 ) {
 
   profilePage.addEventListener("mousemove", (event) => {
 
-    const x =
-      event.clientX / window.innerWidth;
-
-    const y =
-      event.clientY / window.innerHeight;
-
-
-    /*
-      Convert mouse position into
-      -1 to +1
-    */
-
-    targetX = (x - 0.5) * 2;
-
-    targetY = (y - 0.5) * 2;
-
-
-    /*
-      Card shine position
-    */
-
     const rect =
       profileCard.getBoundingClientRect();
 
+    // Cursor position INSIDE the complete card
     const mouseX =
       event.clientX - rect.left;
 
     const mouseY =
       event.clientY - rect.top;
 
+    // Convert cursor position to -1 ... +1
+    const percentX =
+      (mouseX / rect.width) - 0.5;
+
+    const percentY =
+      (mouseY / rect.height) - 0.5;
+
+    targetX =
+      percentX * 2;
+
+    targetY =
+      percentY * 2;
+
+    // Keep shine/glow following cursor
     profileCard.style.setProperty(
       "--mouse-x",
       `${mouseX}px`
@@ -256,34 +270,39 @@ if (
 
   function animateCard() {
 
+    // Smooth follow
     currentX +=
-      (targetX - currentX) * 0.08;
+      (targetX - currentX) * 0.10;
 
     currentY +=
-      (targetY - currentY) * 0.08;
+      (targetY - currentY) * 0.10;
 
 
-    /*
-      Maximum rotation:
-      X = up/down
-      Y = left/right
-    */
+    // ======================================
+    // 3D ROTATION
+    // ======================================
 
     const rotateY =
-      currentX * 7;
+      currentX * 14;
 
     const rotateX =
-      currentY * -7;
+      currentY * -14;
 
 
+    // Slight physical movement
     const moveX =
-      currentX * 3;
+      currentX * 5;
 
     const moveY =
-      currentY * 3;
+      currentY * 5;
 
+
+    // ======================================
+    // COMPLETE CARD ANIMATION
+    // ======================================
 
     profileCard.style.transform = `
+      perspective(1200px)
       translate3d(${moveX}px, ${moveY}px, 0)
       rotateX(${rotateX}deg)
       rotateY(${rotateY}deg)
@@ -296,6 +315,88 @@ if (
 
 
   animateCard();
+
+}
+
+
+// ==========================================
+// MOBILE TOUCH EFFECT
+// ==========================================
+
+if (
+  profileCard &&
+  isTouchDevice &&
+  !prefersReducedMotion
+) {
+
+  let touchStartX = 0;
+  let touchStartY = 0;
+
+  profilePage.addEventListener(
+    "touchstart",
+    (event) => {
+
+      const touch =
+        event.touches[0];
+
+      touchStartX =
+        touch.clientX;
+
+      touchStartY =
+        touch.clientY;
+
+    },
+    { passive: true }
+  );
+
+
+  profilePage.addEventListener(
+    "touchmove",
+    (event) => {
+
+      const touch =
+        event.touches[0];
+
+      const deltaX =
+        touch.clientX - touchStartX;
+
+      const deltaY =
+        touch.clientY - touchStartY;
+
+
+      const rotateY =
+        Math.max(
+          -8,
+          Math.min(8, deltaX * 0.08)
+        );
+
+      const rotateX =
+        Math.max(
+          -8,
+          Math.min(8, deltaY * -0.08)
+        );
+
+
+      profileCard.style.transform = `
+        perspective(1200px)
+        rotateX(${rotateX}deg)
+        rotateY(${rotateY}deg)
+      `;
+
+    },
+    { passive: true }
+  );
+
+
+  profilePage.addEventListener(
+    "touchend",
+    () => {
+
+      profileCard.style.transform =
+        "perspective(1200px) rotateX(0deg) rotateY(0deg)";
+
+    }
+  );
 
 }
 

@@ -857,69 +857,10 @@ h1 {
 
 
 /* =========================
-   MEDIA CONTROLS
-========================= */
-
-.media-controls {
-  position: fixed;
-
-  right: 24px;
-  bottom: 24px;
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 9px;
-
-  z-index: 20;
-}
-
-.control-btn {
-  width: 46px;
-  height: 46px;
-
-  display: grid;
-  place-items: center;
-
-  border: 1px solid rgba(255, 255, 255, 0.14);
-
-  border-radius: 50%;
-
-  color: #fff;
-
-  background: rgba(8, 10, 14, 0.58);
-
-  backdrop-filter: blur(14px);
-
-  -webkit-backdrop-filter: blur(14px);
-
-  cursor: pointer;
-
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease,
-    border-color 0.2s ease;
-}
-
-.control-btn:hover {
-  transform: translateY(-3px) scale(1.06);
-
-  background: rgba(88, 101, 242, 0.18);
-
-  border-color: rgba(255, 255, 255, 0.25);
-}
-
-.control-btn:active {
-  transform: scale(0.94);
-}
-
-
-/* =========================
    MOUSE HINT
 ========================= */
 
-.scroll-hint {
+/* .scroll-hint {
   position: fixed;
 
   left: 24px;
@@ -955,7 +896,7 @@ h1 {
 /* =========================
    CARD INTRO
 ========================= */
-
+/* 
 @keyframes cardIn {
   from {
     opacity: 0;
@@ -972,8 +913,81 @@ h1 {
       translateY(0)
       scale(1);
   }
+} */ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   ACTIVE MOUSE HINT
+========================= */
+
+.scroll-hint {
+  position: fixed;
+  left: 24px;
+  bottom: 29px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: rgba(255, 255, 255, 0.32);
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  z-index: 20;
+animation: scrollHintBox 2s ease-in-out infinite !important;
+will-change: transform;
 }
 
+.scroll-hint i {
+  font-size: 10px;
+  display: inline-block;
+  animation: mouseHint 1.4s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* @keyframes mouseHint {
+  0% {
+    transform: translateY(0);
+    opacity: 0.35;
+  }
+
+  50% {
+    transform: translateY(7px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 0.35;
+  }
+} */
+
+@keyframes scrollHintBox {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -10px, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
 
 /* =========================
    MOBILE
